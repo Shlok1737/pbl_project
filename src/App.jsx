@@ -1,9 +1,12 @@
-import { HashRouter as BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";import { AuthProvider, useAuth } from "./context/AuthContext";
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
+
+const navLink = { textDecoration: "none", color: "#374151", fontWeight: "500" };
 
 function Nav() {
   const { user } = useAuth();
@@ -27,21 +30,27 @@ function Nav() {
   );
 }
 
-const navLink = { textDecoration: "none", color: "#374151", fontWeight: "500" };
+function AppRoutes() {
+  return (
+    <>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/search" element={<Search />} />
+      </Routes>
+    </>
+  );
+}
 
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/search" element={<Search />} />
-        </Routes>
-      </BrowserRouter>
+      <HashRouter>
+        <AppRoutes />
+      </HashRouter>
     </AuthProvider>
   );
 }
