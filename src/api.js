@@ -31,7 +31,7 @@ export const api = {
     }).then((r) => r.json()),
 
   match: (prompt) =>
-    fetch("http://localhost:8000/match", {
+    fetch("https://uniconnect-matcher.onrender.com/match", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt }),
