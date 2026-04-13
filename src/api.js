@@ -1,4 +1,4 @@
-const BASE = "http://localhost:5000/api";
+const BASE = "https://uniconnect-hpdc.onrender.com/api";
 
 export const api = {
   register: (data) =>
