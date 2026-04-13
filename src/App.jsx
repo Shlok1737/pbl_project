@@ -1,5 +1,4 @@
-import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
-import { AuthProvider, useAuth } from "./context/AuthContext";
+import { HashRouter as BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";import { AuthProvider, useAuth } from "./context/AuthContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
